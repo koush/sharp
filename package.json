@@ -1,7 +1,7 @@
 {
   "name": "@koush/sharp",
   "description": "High performance Node.js image processing, the fastest module to resize JPEG, PNG, WebP, GIF, AVIF and TIFF images",
-  "version": "0.32.11",
+  "version": "0.32.14",
   "author": "Lovell Fuller <npm@lovell.info>",
   "homepage": "https://github.com/koush/sharp",
   "contributors": [
@@ -89,7 +89,7 @@
     "Lachlan Newman <lachnewman007@gmail.com>"
   ],
   "scripts": {
-    "install": "(cross-env-shell \"$NODE\" install/libvips && cross-env-shell \"$NODE\" install/dll-copy && cross-env PREBUILD_VERSION=0.32.6 prebuild-install) || (cross-env-shell \"$NODE\" install/can-compile && node-gyp rebuild && cross-env-shell \"$NODE\" install/dll-copy)",
+    "install": "(cross-env-shell '\"$NODE\"' install/libvips && cross-env-shell '\"$NODE\"' install/dll-copy && cross-env PREBUILD_VERSION=0.32.6 prebuild-install) || (cross-env-shell '\"$NODE\"' install/can-compile && node-gyp rebuild && cross-env-shell '\"$NODE\"' install/dll-copy)",
     "clean": "rm -rf node_modules/ build/ vendor/ .nyc_output/ coverage/ test/fixtures/output.*",
     "test": "npm run test-lint && npm run test-unit && npm run test-licensing && npm run test-types",
     "test-lint": "semistandard && cpplint",
