@@ -1,7 +1,7 @@
 {
   "name": "@koush/sharp",
   "description": "High performance Node.js image processing, the fastest module to resize JPEG, PNG, WebP, GIF, AVIF and TIFF images",
-  "version": "0.32.15",
+  "version": "0.32.18",
   "author": "Lovell Fuller <npm@lovell.info>",
   "homepage": "https://github.com/koush/sharp",
   "contributors": [
@@ -136,11 +136,13 @@
     "color": "^4.2.3",
     "cross-env": "^7.0.3",
     "detect-libc": "^2.0.2",
-    "node-addon-api": "^6.1.0",
     "semver": "^7.5.4",
     "simple-get": "^4.0.1",
     "tar-fs": "^3.0.4",
     "tunnel-agent": "^0.6.0"
+  },
+  "optionalDependencies": {
+    "node-addon-api": "^6.1.0"
   },
   "license": "Apache-2.0",
   "config": {
