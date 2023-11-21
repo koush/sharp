@@ -1,7 +1,7 @@
 {
   "name": "@koush/sharp",
   "description": "High performance Node.js image processing, the fastest module to resize JPEG, PNG, WebP, GIF, AVIF and TIFF images",
-  "version": "0.32.7",
+  "version": "0.32.9",
   "author": "Lovell Fuller <npm@lovell.info>",
   "homepage": "https://github.com/koush/sharp",
   "contributors": [
@@ -89,7 +89,7 @@
     "Lachlan Newman <lachnewman007@gmail.com>"
   ],
   "scripts": {
-    "install": "(\"$NODE\" install/libvips && \"$NODE\" install/dll-copy && cross-env PREBUILD_VERSION=0.32.6 prebuild-install) || (\"$NODE\" install/can-compile && node-gyp rebuild && \"$NODE\" install/dll-copy)",
+    "install": "(cross-env-shell \"$NODE\" install/libvips && cross-env-shell \"$NODE\" install/dll-copy && cross-env && cross-env-shell PREBUILD_VERSION=0.32.6 prebuild-install) || (cross-env-shell \"$NODE\" install/can-compile && node-gyp rebuild && cross-env-shell \"$NODE\" install/dll-copy)",
     "clean": "rm -rf node_modules/ build/ vendor/ .nyc_output/ coverage/ test/fixtures/output.*",
     "test": "npm run test-lint && npm run test-unit && npm run test-licensing && npm run test-types",
     "test-lint": "semistandard && cpplint",
@@ -134,6 +134,7 @@
   "dependencies": {
     "@koush/prebuild-install": "^7.1.2",
     "color": "^4.2.3",
+    "cross-env": "^7.0.3",
     "detect-libc": "^2.0.2",
     "node-addon-api": "^6.1.0",
     "semver": "^7.5.4",
@@ -145,7 +146,6 @@
     "@types/node": "*",
     "async": "^3.2.4",
     "cc": "^3.0.1",
-    "cross-env": "^7.0.3",
     "exif-reader": "^1.2.0",
     "extract-zip": "^2.0.1",
     "icc": "^3.0.0",
