@@ -136,13 +136,27 @@
     "color": "^4.2.3",
     "cross-env": "^7.0.3",
     "detect-libc": "^2.0.2",
+    "node-addon-api": "^6.1.0",
     "semver": "^7.5.4",
     "simple-get": "^4.0.1",
     "tar-fs": "^3.0.4",
     "tunnel-agent": "^0.6.0"
   },
-  "optionalDependencies": {
-    "node-addon-api": "^6.1.0"
+  "devDependencies": {
+    "@types/node": "*",
+    "async": "^3.2.4",
+    "cc": "^3.0.1",
+    "exif-reader": "^1.2.0",
+    "extract-zip": "^2.0.1",
+    "icc": "^3.0.0",
+    "jsdoc-to-markdown": "^8.0.0",
+    "license-checker": "^25.0.1",
+    "mocha": "^10.2.0",
+    "mock-fs": "^5.2.0",
+    "nyc": "^15.1.0",
+    "prebuild": "^12.0.0",
+    "semistandard": "^16.0.1",
+    "tsd": "^0.29.0"
   },
   "license": "Apache-2.0",
   "config": {

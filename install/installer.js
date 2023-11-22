@@ -14,8 +14,8 @@ async function spawnBinary(p, args) {
     throw new Error(`exited with error: ${code}`);
 }
 
-async function spawnScript(script) {
-  return spawnBinary(process.argv0, [path.join(__dirname, script)]);
+async function spawnScript(script, args) {
+  return spawnBinary(process.argv0, [path.join(__dirname, script), ...(args || [])]);
 }
 
 async function main() {
@@ -29,7 +29,7 @@ async function main() {
     console.warn('prebuild failed:', e);
     // node install/can-compile && node-gyp rebuild && node install/dll-copy
     await spawnScript('can-compile.js');
-    await spawnBinary('node-gyp', []);
+    await spawnScript('../node_modules/.bin/node-gyp', ['rebuild']);
     await spawnScript('dll-copy.js');
   }
 }
