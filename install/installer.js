@@ -21,7 +21,10 @@ async function main() {
     // node install/libvips && node install/dll-copy && prebuild-install)
     await spawnScript('libvips.js');
     await spawnScript('dll-copy.js');
-    await spawnBinary('prebuild-install.cmd', []);
+    if (process.platform === 'win32')
+      await spawnBinary('../node_modules/.bin/prebuild-install.cmd', []);
+    else
+      await spawnScript('../node_modules/.bin/prebuild-install');
   }
   catch (e) {
     console.warn('prebuild failed:', e);
