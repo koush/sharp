@@ -21,13 +21,13 @@ async function main() {
     // node install/libvips && node install/dll-copy && prebuild-install)
     await spawnScript('libvips.js');
     await spawnScript('dll-copy.js');
-    await spawnBinary('prebuild-install', []);
+    await spawnBinary('prebuild-install.cmd', []);
   }
   catch (e) {
     console.warn('prebuild failed:', e);
     // node install/can-compile && node-gyp rebuild && node install/dll-copy
     await spawnScript('can-compile.js');
-    await spawnBinary('node-gyp');
+    await spawnBinary('node-gyp', []);
     await spawnScript('dll-copy.js');
   }
 }
