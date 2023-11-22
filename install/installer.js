@@ -14,8 +14,12 @@ async function spawnBinary(p, args) {
     throw new Error(`exited with error: ${code}`);
 }
 
+async function spawnScriptRaw(script, args) {
+  return spawnBinary(process.argv0, [script, ...(args || [])]);
+}
+
 async function spawnScript(script, args) {
-  return spawnBinary(process.argv0, [path.join(__dirname, script), ...(args || [])]);
+  return spawnScriptRaw(path.join(__dirname, script), args || []);
 }
 
 async function main() {
@@ -23,7 +27,7 @@ async function main() {
     // node install/libvips && node install/dll-copy && prebuild-install)
     await spawnScript('libvips.js');
     await spawnScript('dll-copy.js');
-    await spawnScript('../node_modules/@koush/prebuild-install/bin.js', []);
+    await spawnScriptRaw(require.resolve('@koush/prebuild-install/bin.js'), []);
   }
   catch (e) {
     console.warn('prebuild failed:', e);
